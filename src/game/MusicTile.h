@@ -1,18 +1,18 @@
 #pragma once
-#include "utils/Color.h"
 #include <SDL.h>
 
 struct MusicTile
 {
 	public:
 		MusicTile();
-		MusicTile(int);
+		MusicTile(int, int);
+		static SDL_Color getColor(int);
 		void update(float speed);
 		void render(SDL_Renderer*, int scale);
 		void setDelay(Uint16 delay);
 		int getExplode();
 		Uint8 checkCollision(bool*);
-		int getHeight() { return height_; }
+		int getHeight() { return (int)height_; }
 		int getRow() { return row_; }
 		bool isTapped();
 		void destroyTile();
@@ -21,6 +21,6 @@ struct MusicTile
 		float height_;
 		bool tapped;
 		int row_;
-		Color3i color_;
+		SDL_Color color_;
 		float explode_;
 };

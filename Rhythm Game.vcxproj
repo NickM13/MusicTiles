@@ -39,12 +39,12 @@
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <IncludePath>C:\Users\Nick\Documents\Visual Studio 2013\Projects\Rhythm Game\res;C:\Users\Nick\Documents\Visual Studio 2013\Projects\Rhythm Game\src;C:\Users\Nick\Documents\Visual Studio 2013\Projects\Rhythm Game\include\SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Nick\Documents\Visual Studio 2013\Projects\Rhythm Game\include\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\include\SDL2_ttf\include;$(SolutionDir)\include\SDL2_mixer\include;$(SolutionDir)\include\SDL2_image\include;$(SolutionDir)\res;$(SolutionDir)\src;$(SolutionDir)\include\SDL2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\include\SDL2_ttf\lib\x86;$(SolutionDir)\include\SDL2_mixer\lib\x86;$(SolutionDir)\include\SDL2_image\lib\x86;$(SolutionDir)\include\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
-    <IncludePath>C:\Users\Nick\Documents\Visual Studio 2013\Projects\Rhythm Game\res;C:\Users\Nick\Documents\Visual Studio 2013\Projects\Rhythm Game\src;C:\Users\Nick\Documents\Visual Studio 2013\Projects\Rhythm Game\include\SDL2\include;$(IncludePath)</IncludePath>
-    <LibraryPath>C:\Users\Nick\Documents\Visual Studio 2013\Projects\Rhythm Game\include\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
+    <IncludePath>$(SolutionDir)\include\SDL2_ttf\include;$(SolutionDir)\include\SDL2_mixer\include;$(SolutionDir)\include\SDL2_image\include;$(SolutionDir)\res;$(SolutionDir)\src;$(SolutionDir)\include\SDL2\include;$(IncludePath)</IncludePath>
+    <LibraryPath>$(SolutionDir)\include\SDL2_ttf\lib\x86;$(SolutionDir)\include\SDL2_mixer\lib\x86;$(SolutionDir)\include\SDL2_image\lib\x86;$(SolutionDir)\include\SDL2\lib\x86;$(LibraryPath)</LibraryPath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
@@ -54,7 +54,7 @@
     </ClCompile>
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
@@ -70,12 +70,15 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>SDL2.lib;SDL2main.lib;SDL2_ttf.lib;SDL2_image.lib;SDL2_mixer.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <SubSystem>Console</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <None Include="libfreetype-6.dll" />
     <None Include="SDL2.dll" />
+    <None Include="SDL2_ttf.dll" />
+    <None Include="zlib1.dll" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\game\Application.cpp" />
@@ -84,17 +87,90 @@
     <ClCompile Include="src\gfx\Font.cpp" />
     <ClCompile Include="src\gfx\LTexture.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\menu\SideMenu.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="include\SDL2\include\begin_code.h" />
+    <ClInclude Include="include\SDL2\include\close_code.h" />
+    <ClInclude Include="include\SDL2\include\SDL.h" />
+    <ClInclude Include="include\SDL2\include\SDL_assert.h" />
+    <ClInclude Include="include\SDL2\include\SDL_atomic.h" />
+    <ClInclude Include="include\SDL2\include\SDL_audio.h" />
+    <ClInclude Include="include\SDL2\include\SDL_bits.h" />
+    <ClInclude Include="include\SDL2\include\SDL_blendmode.h" />
+    <ClInclude Include="include\SDL2\include\SDL_clipboard.h" />
+    <ClInclude Include="include\SDL2\include\SDL_config.h" />
+    <ClInclude Include="include\SDL2\include\SDL_cpuinfo.h" />
+    <ClInclude Include="include\SDL2\include\SDL_endian.h" />
+    <ClInclude Include="include\SDL2\include\SDL_error.h" />
+    <ClInclude Include="include\SDL2\include\SDL_events.h" />
+    <ClInclude Include="include\SDL2\include\SDL_filesystem.h" />
+    <ClInclude Include="include\SDL2\include\SDL_gamecontroller.h" />
+    <ClInclude Include="include\SDL2\include\SDL_gesture.h" />
+    <ClInclude Include="include\SDL2\include\SDL_haptic.h" />
+    <ClInclude Include="include\SDL2\include\SDL_hints.h" />
+    <ClInclude Include="include\SDL2\include\SDL_joystick.h" />
+    <ClInclude Include="include\SDL2\include\SDL_keyboard.h" />
+    <ClInclude Include="include\SDL2\include\SDL_keycode.h" />
+    <ClInclude Include="include\SDL2\include\SDL_loadso.h" />
+    <ClInclude Include="include\SDL2\include\SDL_log.h" />
+    <ClInclude Include="include\SDL2\include\SDL_main.h" />
+    <ClInclude Include="include\SDL2\include\SDL_messagebox.h" />
+    <ClInclude Include="include\SDL2\include\SDL_mouse.h" />
+    <ClInclude Include="include\SDL2\include\SDL_mutex.h" />
+    <ClInclude Include="include\SDL2\include\SDL_name.h" />
+    <ClInclude Include="include\SDL2\include\SDL_opengl.h" />
+    <ClInclude Include="include\SDL2\include\SDL_opengles.h" />
+    <ClInclude Include="include\SDL2\include\SDL_opengles2.h" />
+    <ClInclude Include="include\SDL2\include\SDL_pixels.h" />
+    <ClInclude Include="include\SDL2\include\SDL_platform.h" />
+    <ClInclude Include="include\SDL2\include\SDL_power.h" />
+    <ClInclude Include="include\SDL2\include\SDL_quit.h" />
+    <ClInclude Include="include\SDL2\include\SDL_rect.h" />
+    <ClInclude Include="include\SDL2\include\SDL_render.h" />
+    <ClInclude Include="include\SDL2\include\SDL_revision.h" />
+    <ClInclude Include="include\SDL2\include\SDL_rwops.h" />
+    <ClInclude Include="include\SDL2\include\SDL_scancode.h" />
+    <ClInclude Include="include\SDL2\include\SDL_shape.h" />
+    <ClInclude Include="include\SDL2\include\SDL_stdinc.h" />
+    <ClInclude Include="include\SDL2\include\SDL_surface.h" />
+    <ClInclude Include="include\SDL2\include\SDL_system.h" />
+    <ClInclude Include="include\SDL2\include\SDL_syswm.h" />
+    <ClInclude Include="include\SDL2\include\SDL_test.h" />
+    <ClInclude Include="include\SDL2\include\SDL_test_assert.h" />
+    <ClInclude Include="include\SDL2\include\SDL_test_common.h" />
+    <ClInclude Include="include\SDL2\include\SDL_test_compare.h" />
+    <ClInclude Include="include\SDL2\include\SDL_test_crc32.h" />
+    <ClInclude Include="include\SDL2\include\SDL_test_font.h" />
+    <ClInclude Include="include\SDL2\include\SDL_test_fuzzer.h" />
+    <ClInclude Include="include\SDL2\include\SDL_test_harness.h" />
+    <ClInclude Include="include\SDL2\include\SDL_test_images.h" />
+    <ClInclude Include="include\SDL2\include\SDL_test_log.h" />
+    <ClInclude Include="include\SDL2\include\SDL_test_md5.h" />
+    <ClInclude Include="include\SDL2\include\SDL_test_random.h" />
+    <ClInclude Include="include\SDL2\include\SDL_thread.h" />
+    <ClInclude Include="include\SDL2\include\SDL_timer.h" />
+    <ClInclude Include="include\SDL2\include\SDL_touch.h" />
+    <ClInclude Include="include\SDL2\include\SDL_ttf.h" />
+    <ClInclude Include="include\SDL2\include\SDL_types.h" />
+    <ClInclude Include="include\SDL2\include\SDL_version.h" />
+    <ClInclude Include="include\SDL2\include\SDL_video.h" />
     <ClInclude Include="src\game\Application.h" />
     <ClInclude Include="src\game\Level.h" />
     <ClInclude Include="src\game\MusicTile.h" />
     <ClInclude Include="src\gfx\Font.h" />
     <ClInclude Include="src\gfx\LTexture.h" />
-    <ClInclude Include="src\utils\Color.h" />
+    <ClInclude Include="src\menu\SideMenu.h" />
+    <ClInclude Include="src\utils\Math.h" />
     <ClInclude Include="src\utils\Singleton.h" />
     <ClInclude Include="src\utils\Vector2i.h" />
     <ClInclude Include="src\utils\Vector3f.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="res\font\new_courier\cour.ttf" />
+    <Font Include="res\font\new_courier\courbd.ttf" />
+    <Font Include="res\font\new_courier\courbi.ttf" />
+    <Font Include="res\font\new_courier\couri.ttf" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
