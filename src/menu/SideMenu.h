@@ -1,5 +1,5 @@
 #pragma once
-#include "utils\Singleton.h"
+#include "utils\general\Singleton.h"
 #include <SDL.h>
 
 class SideMenu : public Singleton<SideMenu>
@@ -11,6 +11,5 @@ class SideMenu : public Singleton<SideMenu>
 	private:
 		SDL_Renderer* renderer_;
 		SDL_Rect background_;
-
 
 };

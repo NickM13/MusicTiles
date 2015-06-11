@@ -6,6 +6,7 @@ class Level
 public:
 	void loadLevel(std::string);
 	int readByte();
+	void reload();
 	int* generateRandom(int);
 	int getByte();
 	int getSize();

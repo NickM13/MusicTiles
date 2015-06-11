@@ -11,17 +11,20 @@ int Level::readByte()
 {
 	if (bytesread < levelsize)
 	{
-		printf("%i, %i\n", leveldata[bytesread], bytesread);
 		bytesread++;
 		return leveldata[bytesread-1];
 	}
 	return NULL;
 }
 
+void Level::reload()
+{
+	bytesread = 0;
+}
+
 int* Level::generateRandom(int length)
 {
 	bytesread = 0;
-	//srand(SDL_GetTicks());
 	std::vector<int> rlevel_;
 	int rlength_, row_, rrow_;
 	
@@ -29,7 +32,6 @@ int* Level::generateRandom(int length)
 	for (int i = 0; i < length; i++)
 	{
 		rlength_ = abs(rand() % 100);
-		printf("%i - ", rlength_);
 		if (rlength_ < 0) rlength_ = 0;
 		else if (rlength_ < 75) rlength_ = 1;
 		else if(rlength_ < 85) rlength_ = 2;
@@ -37,12 +39,11 @@ int* Level::generateRandom(int length)
 		else rlength_ = 4;
 
 		row_ = 0;
-		printf("%i\n", rlength_);
 		rlevel_.push_back(rlength_);
 		for (int j = 0; j < rlength_;)
 		{
 			rrow_ = rand() % 10;
-			if (fmod(row_, (pow(2, rrow_))) == 1)
+			if ((row_ >> rrow_) % 2 & 1)
 				continue;
 			row_ += (int)pow(2, rrow_);
 			rlevel_.push_back(rrow_);
@@ -55,9 +56,9 @@ int* Level::generateRandom(int length)
 	}
 	levelsize = rlevel_.size();
 	leveldata = new int[levelsize];
+	printf("Replacing old level...\n");
 	for (unsigned int i = 0; i < rlevel_.size(); i++)
 	{
-		printf("Replacing old level...\n");
 		leveldata[i] = rlevel_[i];
 	}
 	printf("Random level generated, Size: %i\n", levelsize);

@@ -19,18 +19,15 @@
     <None Include="libfreetype-6.dll" />
     <None Include="SDL2_ttf.dll" />
     <None Include="zlib1.dll" />
+    <None Include="libpng16-16.dll" />
+    <None Include="SDL2_image.dll" />
+    <None Include="SDL2_mixer.dll" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\Main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\game\Application.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\game\MusicTile.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gfx\LTexture.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="src\gfx\Font.cpp">
@@ -42,21 +39,24 @@
     <ClCompile Include="src\menu\SideMenu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="src\game\Game.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\game\entity\MusicTile.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\utils\system\Event.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu\Pause.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="src\menu\Startup.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\game\Application.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\utils\Singleton.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\utils\Vector2i.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\game\MusicTile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="src\utils\Vector3f.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="src\gfx\LTexture.h">
@@ -263,10 +263,40 @@
     <ClInclude Include="include\SDL2\include\SDL_video.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\utils\Math.h">
+    <ClInclude Include="src\menu\SideMenu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="src\menu\SideMenu.h">
+    <ClInclude Include="src\game\Game.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\entity\Puncher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\game\entity\MusicTile.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\general\Math.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\general\Singleton.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\struct\Vector2i.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\struct\Vector3f.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\utils\system\Event.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gfx\particle\Particle.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu\Pause.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="src\menu\Startup.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -275,5 +305,22 @@
     <Font Include="res\font\new_courier\couri.ttf" />
     <Font Include="res\font\new_courier\courbi.ttf" />
     <Font Include="res\font\new_courier\courbd.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\img\Blue.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\img\Cyan.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\img\Green.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\img\Red.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="res\img\Yellow.bmp">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

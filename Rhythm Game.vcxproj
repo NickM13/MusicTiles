@@ -76,18 +76,24 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <None Include="libfreetype-6.dll" />
+    <None Include="libpng16-16.dll" />
     <None Include="SDL2.dll" />
+    <None Include="SDL2_image.dll" />
+    <None Include="SDL2_mixer.dll" />
     <None Include="SDL2_ttf.dll" />
     <None Include="zlib1.dll" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\game\Application.cpp" />
+    <ClCompile Include="src\game\Game.cpp" />
     <ClCompile Include="src\game\Level.cpp" />
-    <ClCompile Include="src\game\MusicTile.cpp" />
+    <ClCompile Include="src\game\entity\MusicTile.cpp" />
     <ClCompile Include="src\gfx\Font.cpp" />
-    <ClCompile Include="src\gfx\LTexture.cpp" />
     <ClCompile Include="src\Main.cpp" />
+    <ClCompile Include="src\menu\Pause.cpp" />
     <ClCompile Include="src\menu\SideMenu.cpp" />
+    <ClCompile Include="src\menu\Startup.cpp" />
+    <ClCompile Include="src\utils\system\Event.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="include\SDL2\include\begin_code.h" />
@@ -156,21 +162,34 @@
     <ClInclude Include="include\SDL2\include\SDL_version.h" />
     <ClInclude Include="include\SDL2\include\SDL_video.h" />
     <ClInclude Include="src\game\Application.h" />
+    <ClInclude Include="src\game\entity\Puncher.h" />
+    <ClInclude Include="src\game\Game.h" />
     <ClInclude Include="src\game\Level.h" />
-    <ClInclude Include="src\game\MusicTile.h" />
+    <ClInclude Include="src\game\entity\MusicTile.h" />
+    <ClInclude Include="src\gfx\particle\Particle.h" />
     <ClInclude Include="src\gfx\Font.h" />
     <ClInclude Include="src\gfx\LTexture.h" />
+    <ClInclude Include="src\menu\Pause.h" />
     <ClInclude Include="src\menu\SideMenu.h" />
-    <ClInclude Include="src\utils\Math.h" />
-    <ClInclude Include="src\utils\Singleton.h" />
-    <ClInclude Include="src\utils\Vector2i.h" />
-    <ClInclude Include="src\utils\Vector3f.h" />
+    <ClInclude Include="src\menu\Startup.h" />
+    <ClInclude Include="src\utils\system\Event.h" />
+    <ClInclude Include="src\utils\general\Math.h" />
+    <ClInclude Include="src\utils\general\Singleton.h" />
+    <ClInclude Include="src\utils\struct\Vector2i.h" />
+    <ClInclude Include="src\utils\struct\Vector3f.h" />
   </ItemGroup>
   <ItemGroup>
     <Font Include="res\font\new_courier\cour.ttf" />
     <Font Include="res\font\new_courier\courbd.ttf" />
     <Font Include="res\font\new_courier\courbi.ttf" />
     <Font Include="res\font\new_courier\couri.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\img\Blue.bmp" />
+    <Image Include="res\img\Cyan.bmp" />
+    <Image Include="res\img\Green.bmp" />
+    <Image Include="res\img\Red.bmp" />
+    <Image Include="res\img\Yellow.bmp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
